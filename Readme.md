@@ -1,4 +1,4 @@
 MORPION
 
-Mathieu JOLY
-https://github.com/mathieu-superpose/morpion
+Mathieu JOLY - https://github.com/mathieu-superpose/morpion
+Stanislas BASQUIN
