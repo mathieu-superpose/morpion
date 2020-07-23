@@ -5,18 +5,11 @@
 # et propose aux joueurs de faire une nouvelle partie ensuite.
 
 class Game
-attr_accessor :player1, :player2
+attr_accessor :player1, :player2, :my_board
 
-
-def initialize (player1, player2)
-  @player1 = Player1.new(player1)
-  @player2 = Player2.new(player2)
-
-  my_board = Board.new
-
-end
-
-
-
-
+  def initialize (player1, player2)
+    @player1 = Player1.new(player1)
+    @player2 = Player2.new(player2)
+    @my_board = Board.new
+  end
 end #of class

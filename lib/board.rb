@@ -6,35 +6,24 @@
 
 class Board
 attr_accessor :a1, :a2, :a3, :b1, :b2, :b3, :c1, :c2, :c3
-  
+
   def initialize
-    print "_" * 9, "\n"
-    print "|", "a1.case_content", "|", "a2.case_content", "|", "a3.case_content", "|\n"
-    print "|", "b1.case_content", "|", "b2.case_content", "|", "b3.case_content", "|\n"
-    print "|", "c1.case_content", "|", "c2.case_content", "|", "c3.case_content", "|\n"
-    print "_" * 9, "\n\n"
-    # @a1 = A1.new(a1)
-    # @a2 = A2.new('a2')
-    # @a3 = A3.new('a3')
-    # @b1 = B1.new('b1')
-    # @b2 = B2.new('b2')
-    # @b3 = B3.new('b3')
-    # @c1 = C1.new('c1')
-    # @c2 = C2.new('c2')
-    # @c3 = C3.new('c3')
-  end  
+    @a1 = A1.new(a1)
+    @a2 = A2.new('a2')
+    @a3 = A3.new('a3')
+    @b1 = B1.new('b1')
+    @b2 = B2.new('b2')
+    @b3 = B3.new('b3')
+    @c1 = C1.new('c1')
+    @c2 = C2.new('c2')
+    @c3 = C3.new('c3')
+  end#initialize
 
   def print_board
-  end
-
-  # def print_board
-  #   print "_" * 9, "\n"
-  #   print "|", a1.case_content, "|", a2.case_content, "|", a3.case_content, "|\n"
-  #   print "|", b1.case_content, "|", b2.case_content, "|", b3.case_content, "|\n"
-  #   print "|", c1.case_content, "|", c2.case_content, "|", c3.case_content, "|\n"
-  #   print "_" * 9, "\n\n"
-  # end
-
-
-
-end #of class
+    print "_" * 9, "\n"
+    print "|", a1.case_content, "|", a2.case_content, "|", a3.case_content, "|\n"
+    print "|", b1.case_content, "|", b2.case_content, "|", b3.case_content, "|\n"
+    print "|", c1.case_content, "|", c2.case_content, "|", c3.case_content, "|\n"
+    print "_" * 9, "\n\n"
+  end#print_board
+end#class Board
