@@ -5,21 +5,24 @@ Bundler.require
 $:.unshift File.expand_path("./../lib", __FILE__)
 require 'game'
 require 'player'
-
+require 'board'
+require 'board_case'
 #MyClass.new.perform
 
 #Demander les prénoms des joueur
 
 
 puts "Entrez le prénom du premier joueur"
-player1 = gets.chomp
+name_choice1 = gets.chomp
 
 
 puts "Entrez le prénom du second joueur"
-player2 = gets.chomp
+name_choice2 = gets.chomp
 
 
 
 #Initialisation d'une nouvelle partie
-new_game = Game.new(player1, player2)
+new_game = Game.new(name_choice1, name_choice2)
+# my_board.print_board
 
+binding.pry

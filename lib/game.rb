@@ -4,10 +4,7 @@
 # Méthodes : Game permet de jouer un tour (demande au joueur ce qu'il veut faire et rempli la case), s'occupe de finir la partie si un joueur a gagné
 # et propose aux joueurs de faire une nouvelle partie ensuite.
 
-
-
 class Game
-
 attr_accessor :player1, :player2
 
 
