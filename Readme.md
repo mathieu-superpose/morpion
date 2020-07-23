@@ -1,7 +1,7 @@
 # MORPION v1.0
 _le jeu qui montre que tu en as dans la culotte_
 
-![](images/table 1-1.png?raw=true)
+![](images/morpion.png?raw=true)
 
 ## Le jeu
 
