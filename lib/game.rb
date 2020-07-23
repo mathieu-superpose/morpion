@@ -4,44 +4,77 @@
 # Méthodes : Game permet de jouer un tour (demande au joueur ce qu'il veut faire et rempli la case), s'occupe de finir la partie si un joueur a gagné
 # et propose aux joueurs de faire une nouvelle partie ensuite.
 
+# class Game
+#   #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, 
+# nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
+
+#   def initialize
+#     #TO DO : créé 2 joueurs, créé un board, met le status à "on going", défini un current_player
+#   end
+
+
+
+
+
+   
+
+# end
+
+
+
+
+
+
 class Game
-attr_accessor :player1, :player2, :my_board
+attr_accessor :my_board, :current_player, :status, :array_players
 
   def initialize (player1, player2)
     @player1 = Player1.new(player1)
     @player2 = Player2.new(player2)
+    @array_players = [@player1, @player2]
     @my_board = Board.new
-    winning_formulas = [["a1", "a2", "a3"],["b1", "b2", "b3"],["c1", "c2", "c3"],["a1", "b2", "c3"],["a3", "b2", "c1"],["a1", "b1", "c1"],["a2", "b2", "c2"],["a3", "b3", "c3"]]
+    @status = "on going"
+    @current_player = array_players[rand(0..1)]
+
+    
+
+    # winning_formulas = [["a1", "a2", "a3"],["b1", "b2", "b3"],["c1", "c2", "c3"],["a1", "b2", "c3"],["a3", "b2", "c1"],["a1", "b1", "c1"],["a2", "b2", "c2"],["a3", "b3", "c3"]]
+    # cells_available = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
+    # cells_round = []
+    # cells_cross = []
   end#initialize
 
-  def which_cell?
-  	print "Choisi ta case > "
-    return case_choice = gets.chomp
-  end#which cell
 
-  def flag_wrong_input
-    print "Mauvais choix, appuies sur entrée pour recommencer" if cells_available.!include?(casing)
-  end#flag_wrong_input
+  #   def turn
+#     #TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board). 
+# Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné, 
+# passe au joueur suivant si la partie n'est pas finie.
+#   end
+
+  def turn
+    my_board.play_turn
+    my_board.victory?
+  end#turn
+
+  #def new_round
+  ## TO DO : relance une partie en initialisant un nouveau board mais en gardant les mêmes joueurs.
+  #end
+
+  # def game_end
+  ## TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
+  #end 
 
   
 
-  def is_winning?
-    for i in (0..7)
-      if cells_cross.include?(winning_formulas[i][0]) && cells_round.include?(winning_formulas[i][1]) && cells_round.include?(winning_formulas[i][2])
-        abort ("Gagné !")
-      else
-      end
-    end
-  end#is_winning?
-
-  # def perform
-  #   until cells_available.empty?
-  #       #joueur1 joue (def turn)
-  #       #jouer 1 gagne?
-  #       #tableau plein?
-  #       #joueur 2 joue (def turn)
-  #       #joueu gage?
-  #       #tableau plein?
-  #   end
-  # end#perform
+  def perform
+    turn
+    #until cells_available.empty?
+        #joueur1 joue (def turn)
+        #jouer 1 gagne?
+        #tableau plein?
+        #joueur 2 joue (def turn)
+        #joueu gage?
+        #tableau plein?
+    #end
+  end#perform
 end #of class
