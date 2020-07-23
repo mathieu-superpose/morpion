@@ -11,38 +11,37 @@ attr_accessor :player1, :player2, :my_board
     @player1 = Player1.new(player1)
     @player2 = Player2.new(player2)
     @my_board = Board.new
-  end
+    winning_formulas = [["a1", "a2", "a3"],["b1", "b2", "b3"],["c1", "c2", "c3"],["a1", "b2", "c3"],["a3", "b2", "c1"],["a1", "b1", "c1"],["a2", "b2", "c2"],["a3", "b3", "c3"]]
+  end#initialize
 
   def which_cell?
   	print "Choisi ta case > "
-  	# puts case_choice = gets.chomp
-   #  puts case_choice
-   #  puts cell_available?(case_choice)
-  	# return  (cell_available?(case_choice) == true) ?  (print "Bon") : (print "Mauvais")#) ? (case_choice) : (puts "non disponible")
     return case_choice = gets.chomp
-  end
-  # def cell_available?(case_choice)
-  #   puts "#{case_choice} est dans cell"
-  #   return case_choice.case_availability
-  # end
+  end#which cell
 
-  def menu 
-    print "Choisi ta case > "
-    case_choice = gets.chomp
-    
-    puts "s - chercher à se soigner "
-    puts ""
-    puts "Attaquer un des bots encore en vie : "
-    i = 0
-    @enemies_in_sight.each do |enemy|
-      if enemy.life_points > 0
-        puts "Tu peux sinon attaquer l'ennemi #{i}"
-        enemy.show_state
-        i = i + 1
+  def flag_wrong_input
+    print "Mauvais choix, appuies sur entrée pour recommencer" if cells_available.!include?(casing)
+  end#flag_wrong_input
+
+  
+
+  def is_winning?
+    for i in (0..7)
+      if cells_cross.include?(winning_formulas[i][0]) && cells_round.include?(winning_formulas[i][1]) && cells_round.include?(winning_formulas[i][2])
+        abort ("Gagné !")
+      else
       end
     end
-  end
+  end#is_winning?
 
-
-
+  # def perform
+  #   until cells_available.empty?
+  #       #joueur1 joue (def turn)
+  #       #jouer 1 gagne?
+  #       #tableau plein?
+  #       #joueur 2 joue (def turn)
+  #       #joueu gage?
+  #       #tableau plein?
+  #   end
+  # end#perform
 end #of class

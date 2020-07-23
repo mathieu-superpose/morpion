@@ -9,15 +9,15 @@ c1 = "c1"
 c2 = "c2"
 c3 = "c3"
 
-winning_furmulas = [[a1, a2, a3],[b1, b2, b3],[c1, c2, c3],[a1, b2, c3],[a3, b2, c1],[a1, b1, c1],[a2, b2, c2],[a3, b3, c3]]
-cells_availaible = [a1, a2, a3, b1, b2, b3, c1, c2, c3]
+winning_formulas = [[a1, a2, a3],[b1, b2, b3],[c1, c2, c3],[a1, b2, c3],[a3, b2, c1],[a1, b1, c1],[a2, b2, c2],[a3, b3, c3]]
+cells_available = [a1, a2, a3, b1, b2, b3, c1, c2, c3]
 cells_round = []
 cells_cross = []
 casing = "nothing"
 
 
-  until cells_availaible.empty?
-    until cells_availaible.include?(casing)
+  until cells_available.empty?
+    until cells_available.include?(casing)
       puts `clear`
       puts "\n\nQuelle case pour un rond?\n\n"
       print "_" * 9, "\n"
@@ -27,10 +27,10 @@ casing = "nothing"
       print "_" * 9, "\n\n"
 			print "    >"
 			casing = gets.chomp
-      (cells_availaible.include?(casing)) ? ():(print "Mauvais choix, appuies sur entrée pour recommencer")
+      (cells_available.include?(casing)) ? ():(print "Mauvais choix, appuies sur entrée pour recommencer")
       puts gets.chomp
 		end
-    cells_availaible.delete(casing)
+    cells_available.delete(casing)
     cells_round.push(casing)
     case casing
     when a1
@@ -68,7 +68,7 @@ casing = "nothing"
 
 
 
-    until cells_availaible.include?(casing)
+    until cells_available.include?(casing)
       puts `clear`
       puts "\n\nQuelle case pour une croix?\n\n"
       print "_" * 9, "\n"
@@ -78,10 +78,10 @@ casing = "nothing"
       print "_" * 9, "\n\n"
 			print "    >"
 			casing = gets.chomp
-      (cells_availaible.include?(casing)) ? ():(print "Mauvais choix, appuies sur entrée pour recommencer")
+      (cells_available.include?(casing)) ? ():(print "Mauvais choix, appuies sur entrée pour recommencer")
       puts gets.chomp
 		end
-    cells_availaible.delete(casing)
+    cells_available.delete(casing)
     cells_cross.push(casing)
     case casing
     when a1
