@@ -29,6 +29,7 @@ attr_accessor :player1, :player2, :my_board
   def menu 
     print "Choisi ta case > "
     case_choice = gets.chomp
+    
     puts "s - chercher à se soigner "
     puts ""
     puts "Attaquer un des bots encore en vie : "
