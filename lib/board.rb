@@ -19,11 +19,6 @@ attr_accessor :a1, :a2, :a3, :b1, :b2, :b3, :c1, :c2, :c3
     @c3 = C3.new('c3')
   end#initialize
 
-  def cell_available?(case_choice)
-    puts "#{case_choice} est dans cell"
-    return case_choice.case_availability
-  end
-
 
   def print_board
     print "_" * 9, "\n"

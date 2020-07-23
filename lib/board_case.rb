@@ -18,7 +18,7 @@ class A1 < BoardCase
   def initialize(case_position)
     @case_position = "a1"
     @case_content = "A1"
-    @case_availability = "yes"
+    @case_availability = true
   end
 end
 
