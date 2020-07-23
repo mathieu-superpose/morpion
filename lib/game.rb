@@ -12,4 +12,18 @@ attr_accessor :player1, :player2, :my_board
     @player2 = Player2.new(player2)
     @my_board = Board.new
   end
+
+  def which_cell?
+  	print "Choisi ta case > "
+  	puts case_choice = gets.chomp
+    puts case_choice
+    puts cell_available?(case_choice)
+  	return  (cell_available?(case_choice) == true) ?  (print "Bon") : (print "Mauvais")#) ? (case_choice) : (puts "non disponible")
+  end
+
+  def cell_available?(case_choice)
+    puts "#{case_choice} est dans cell"
+    return case_choice.case_availability
+  end
+
 end #of class

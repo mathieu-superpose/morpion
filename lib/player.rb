@@ -10,14 +10,12 @@ class Player
 
 end
 
-
 class Player1 < Player
   def initialize(name)
     @name = name
     puts "C'est moi le player 1 : #{name}"
   end #end initialize
 end #end of class player1
-
 
 class Player2 < Player
   def initialize(name)

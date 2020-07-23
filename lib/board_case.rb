@@ -8,7 +8,7 @@ class BoardCase
 
   def initialize (case_position)
     @case_position = case_position
-    @case_content = "empty"
+    @case_content = "A1"
   end
 
 end #of classe
@@ -17,14 +17,16 @@ end #of classe
 class A1 < BoardCase
   def initialize(case_position)
     @case_position = "a1"
-    @case_content = "empty"
+    @case_content = "A1"
+    @case_availability = "yes"
   end
 end
 
 class A2 < BoardCase
   def initialize(case_position)
     @case_position = "a2"
-    @case_content = "empty"
+    @case_content = "A2"
+    @case_availability = true
   end
 end
 
@@ -32,7 +34,8 @@ end
 class A3 < BoardCase
   def initialize(case_position)
     @case_position = "a3"
-    @case_content = "empty"
+    @case_content = "A3"
+    @case_availability = true
   end
 end
 
@@ -40,21 +43,24 @@ end
 class B1 < BoardCase
   def initialize(case_position)
     @case_position = "b1"
-    @case_content = "empty"
+    @case_content = "B1"
+    @case_availability = true
   end
 end
 
 class B2 < BoardCase
   def initialize(case_position)
     @case_position = "b2"
-    @case_content = "empty"
+    @case_content = "B2"
+    @case_availability = true
   end
 end
 
 class B3 < BoardCase
   def initialize(case_position)
     @case_position = "b3"
-    @case_content = "empty"
+    @case_content = "B3"
+    @case_availability = true
   end
 end
 
@@ -62,21 +68,24 @@ end
 class C1 < BoardCase
   def initialize(case_position)
     @case_position = "c1"
-    @case_content = "empty"
+    @case_content = "C1"
+    @case_availability = true
   end
 end
 
 class C2 < BoardCase
   def initialize(case_position)
     @case_position = "c2"
-    @case_content = "empty"
+    @case_content = "C2"
+    @case_availability = true
   end
 end
 
 class C3 < BoardCase
   def initialize(case_position)
     @case_position = "c3"
-    @case_content = "empty"
+    @case_content = "C3"
+    @case_availability = true
   end
 end
 

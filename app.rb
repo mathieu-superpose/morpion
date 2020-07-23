@@ -23,5 +23,9 @@ name_choice2 = gets.chomp
 
 #Initialisation d'une nouvelle partie
 new_game = Game.new(name_choice1, name_choice2)
-# my_board.print_board
-my_board.print_board
+
+binding.pry
+
+new_game.my_board.print_board
+
+new_game.which_cell?
