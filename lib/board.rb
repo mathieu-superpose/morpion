@@ -27,92 +27,97 @@ attr_accessor :cells
 #attr_accessor [:a1, :a2, :a3, :b1, :b2, :b3, :c1, :c2, :c3]
 
   def initialize
-    @a1 = A1.new('a1')
-    @a2 = A2.new('a2')
-    @a3 = A3.new('a3')
-    @b1 = B1.new('b1')
-    @b2 = B2.new('b2')
-    @b3 = B3.new('b3')
-    @c1 = C1.new('c1')
-    @c2 = C2.new('c2')
-    @c3 = C3.new('c3')
+
+    @a1 = BoardCase.new('a1', "A1")
+    @a2 = BoardCase.new('a2', "A2")
+    @a3 = BoardCase.new('a3', "A3")
+    @b1 = BoardCase.new('b1', "B1")
+    @b2 = BoardCase.new('b2', "B2")
+    @b3 = BoardCase.new('b3', "B3")
+    @c1 = BoardCase.new('c1', "C1")
+    @c2 = BoardCase.new('c2', "C2")
+    @c3 = BoardCase.new('c3', "C3")
+
     @cells = [@a1, @a2, @a3, @b1, @b2, @b3, @c1, @c2, @c3]
+
+    @cells_available = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
+
   end#initialize
 
-  def which_cell?
+
+  def player_move(player)
+
     print "Choisi ta case > "
-    return case_choice = gets.chomp
-  end#which cell
-
-  def flag_wrong_input
-    print "Mauvais choix, appuies sur entrée pour recommencer" if !cells_available.include?(casing)
-  end#flag_wrong_input
-
-  def update_cells_round(casing)
-    cells_available.delete(casing)
-    cells_round.push(casing)
-  end#update_cells_round
-  def update_cells_cross(casing)
-    cells_available.delete(casing)
-    cells_cross.push(casing)
-  end#update_cells_cross
-
-  def update_case_content(casing)
+    case_choice = gets.chomp
+    
+    while @cells_available.include?(case_choice) == false
+      print "Mauvais choix, recommence"
+      print "Choisi ta case, rentre une case disponible avec la lettre et le chiffre correspondant > "
+      case_choice = gets.chomp
+    end
+    @cells_available.delete(case_choice) 
 #<-----------------------------------définir quel joueur et adapter content
-    case casing
-    when a1
-      a1 = content
-    when a2
-      a2 = content
-    when a3
-      a3 = content
-    when b1
-      b1 = content
-    when b2
-      b2 = content
-    when b3
-      b3 = content
-    when c1
-      c1 = content
-    when c2
-      c2 = content
-    when c3
-      c3 = content
+    case case_choice
+    when "a1"
+      @a1.case_content = player.symbol
+    when "a2"
+      @a2.case_content = player.symbol
+    when "a3"
+      @a3.case_content = player.symbol
+    when "b1"
+      @b1.case_content = player.symbol
+    when "b2"
+      @b2.case_content = player.symbol
+    when "b3"
+      @b3.case_content = player.symbol
+    when "c1"
+      @c1.case_content = player.symbol
+    when "c2"
+      @c2.case_content = player.symbol
+    when "c3"
+      @c3.case_content = player.symbol
     else
       puts "problème à résoudre"
     end
-  end#update_case_content
+  end#player_move
 
-  def victory?#TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
-    for i in (0..7)
-      if cells_cross.include?(winning_formulas[i][0]) && cells_round.include?(winning_formulas[i][1]) && cells_round.include?(winning_formulas[i][2])
-        abort ("Gagné !")
-      else
-      end
-    end
-  end#victory
+  def victory?
+    if @a1.case_content == "O" && @a2.case_content == "O" && @a3.case_content == "O" || @a1.case_content == "X" && @a2.case_content == "X" && @a3.case_content == "X"
+      return true
+    elsif @b1.case_content == "O" && @b2.case_content == "O" && @b3.case_content == "O" || @b1.case_content == "X" && @b2.case_content == "X" && @b3.case_content == "X"
+      return true
+    elsif @c1.case_content == "O" && @c2.case_content == "O" && @c3.case_content == "O" || @c1.case_content == "X" && @c2.case_content == "X" && @c3.case_content == "X"
+      return true
+    elsif @a1.case_content == "O" && @b1.case_content == "O" && @c1.case_content == "O" || @a1.case_content == "X" && @b1.case_content == "X" && @c1.case_content == "X"
+      return true 
+    elsif @a2.case_content == "O" && @b2.case_content == "O" && @c2.case_content =="O" || @a2.case_content == "X" && @b2.case_content == "X" && @c2.case_content =="X"
+      return true
+    elsif @a3.case_content == "O" && @b3.case_content == "O" && @c3.case_content == "O" || @a3.case_content == "X" && @b3.case_content == "X" && @c3.case_content == "X"
+      return true 
+    elsif @a1.case_content == "O" && @b2.case_content == "O" && @c3.case_content == "O" || @a1.case_content == "X" && @b2.case_content == "X" && @c3.case_content == "X"
+      return true
+    elsif @c1.case_content == "O" && @b2.case_content == "O" && @a3.case_content == "O" || @c1.case_content == "X" && @b2.case_content == "X" && @a3.case_content == "X"
+      return true
+    else return false
+    end 
+  end#victory?
 
+
+  def game_continue?
+    return @cells_available.empty?
+    # (@cells_available == []) ? (false) : (true)
+  end#game_continue?
 
 
   def print_board
-    #binding.pry
-     puts Show.new.show_board(@cells)
+
+     print "_" * 9, "\n"
+     print "|", @a1.case_content, "|", @a2.case_content, "|", @a3.case_content, "|\n"
+     print "|", @b1.case_content, "|", @b2.case_content, "|", @b3.case_content, "|\n"
+     print "|", @c1.case_content, "|", @c2.case_content, "|", @c3.case_content, "|\n"
+     print "_" * 9, "\n\n"
+     print "    >"
   end#print_board
-
-  #   def play_turn
-#     #TO DO : une méthode qui :
-#     #1) demande au bon joueur ce qu'il souhaite faire
-#     #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
-#   end
-
-  def play_turn#joueur joue
-    #until cells_available.include?(casing)
-    print_board#afficher tableau
-    which_cell?#choix
-    flag_wrong_input
-    #end
-    update_cells(casing)#imputation
-  end#turn
 
 
 end#class Board

@@ -13,21 +13,8 @@
 class Player
  attr_reader :name, :symbol
 
- def initialize(name)
+ def initialize(name, symbol)
   @name = name
+  @symbol = symbol
  end#init
 end#class player
-
-class Player1 < Player
-  def initialize(name)
-    @name = name
-    @symbol = "X"
-  end #end initialize
-end #end of class player1
-
-class Player2 < Player
-  def initialize(name)
-    @name = name
-    @symbol = "O"
-  end #end initialize
-end #end of class player2

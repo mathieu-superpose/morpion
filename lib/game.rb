@@ -12,69 +12,50 @@
 #     #TO DO : créé 2 joueurs, créé un board, met le status à "on going", défini un current_player
 #   end
 
-
-
-
-
-   
+ 
 
 # end
-
-
-
 
 
 
 class Game
 attr_accessor :my_board, :current_player, :status, :array_players
 
-  def initialize (player1, player2)
-    @player1 = Player1.new(player1)
-    @player2 = Player2.new(player2)
+  def initialize
+
+    puts "Entrez le prénom du premier joueur"
+    name1 = gets.chomp
+    
+    puts "Entrez le prénom du second joueur"
+    name2 = gets.chomp
+
+    @player1 = Player.new(name1, 'X') 
+    @player2 = Player.new(name2, 'O')
     @array_players = [@player1, @player2]
+   
     @my_board = Board.new
-    @status = "on going"
+    #@status = "on going"
     @current_player = array_players[rand(0..1)]
 
-    
-
-    # winning_formulas = [["a1", "a2", "a3"],["b1", "b2", "b3"],["c1", "c2", "c3"],["a1", "b2", "c3"],["a3", "b2", "c1"],["a1", "b1", "c1"],["a2", "b2", "c2"],["a3", "b3", "c3"]]
-    # cells_available = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
-    # cells_round = []
-    # cells_cross = []
   end#initialize
 
 
-  #   def turn
-#     #TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board). 
-# Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné, 
-# passe au joueur suivant si la partie n'est pas finie.
-#   end
-
-  def turn
-    my_board.play_turn
-    my_board.victory?
-  end#turn
-
-  #def new_round
-  ## TO DO : relance une partie en initialisant un nouveau board mais en gardant les mêmes joueurs.
-  #end
-
-  # def game_end
-  ## TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
-  #end 
-
-  
 
   def perform
-    turn
-    #until cells_available.empty?
-        #joueur1 joue (def turn)
-        #jouer 1 gagne?
-        #tableau plein?
-        #joueur 2 joue (def turn)
-        #joueu gage?
-        #tableau plein?
-    #end
+    
+    my_board.print_board
+    my_board.victory?
+    
+    while my_board.victory? == false
+      my_board.player_move(@player1)
+      my_board.print_board
+      abort ("C'est gagné") if my_board.victory?
+      abort ("Partie nulle") if my_board.game_continue?
+
+      my_board.player_move(@player2)
+      my_board.print_board
+      abort ("C'est gagné") if my_board.victory?
+      abort ("Partie nulle") if my_board.game_continue?
+    end
   end#perform
 end #of class
