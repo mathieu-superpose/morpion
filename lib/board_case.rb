@@ -4,7 +4,7 @@
 
 
 class BoardCase
-  attr_accessor :case_position, :case_content
+  attr_accessor :case_position, :case_content, :case_availability
 
   def initialize (case_position)
     @case_position = case_position
