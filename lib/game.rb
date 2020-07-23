@@ -19,8 +19,8 @@ attr_accessor :my_board, :current_player, :status, :array_players
     name2 = gets.chomp
     puts `clear`
 
-    @player1 = Player.new(name1, ' X ')
-    @player2 = Player.new(name2, ' O ')
+    @player1 = Player.new(name1, '1')
+    @player2 = Player.new(name2, '2')
     @array_players = [@player1, @player2]
 
     @my_board = Board.new
@@ -87,7 +87,6 @@ end
       my_board.print_board
       abort ("C'est gagné") if my_board.victory?
       abort ("Partie nulle") if my_board.game_continue?
-
     end
   end#perform
 end #of class
