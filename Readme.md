@@ -30,3 +30,6 @@ $ ruby app.rb dans le terminal
 
 - [:seedling: Mathieu JOLY](https://github.com/mathieu-superpose)
 - [:v: Stanislas BASQUIN](https://github.com/StanislasBASQUIN)
+
+remerciements à [:fire: Vivien PLOIX](https://github.com/Vivien-Ploix)
+sans qui le morpion n'aurait peut-être pas vu le jour
