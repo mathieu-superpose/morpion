@@ -28,6 +28,7 @@ attr_accessor :cells
     @c1.case_content = "0"
     @c2.case_content = "0"
     @c3.case_content = "0"
+    @cells_available = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
   end
 
   def player_move(player)
