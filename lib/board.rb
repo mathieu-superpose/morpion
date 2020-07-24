@@ -18,10 +18,22 @@ attr_accessor :cells
 
   end#initialize
 
+  def reinit
+    @a1.case_content = "0"
+    @a2.case_content = "0"
+    @a3.case_content = "0"
+    @b1.case_content = "0"
+    @b2.case_content = "0"
+    @b3.case_content = "0"
+    @c1.case_content = "0"
+    @c2.case_content = "0"
+    @c3.case_content = "0"
+  end
+
   def player_move(player)
 
     print "Choisi ta case > "
-    case_choice = gets.chomp
+    case_choice = gets.chomp.downcase
 
     while @cells_available.include?(case_choice) == false
       puts "Mauvais choix, recommence"
@@ -113,14 +125,14 @@ attr_accessor :cells
        print disp[@a3.case_content.to_i][n]
        print "\n"
      end
-     print "       B1           B2           B3\n"
+     print "      B1           B2           B3\n"
      for n in (0..6)
        print disp[@b1.case_content.to_i][n]
        print disp[@b2.case_content.to_i][n]
        print disp[@b3.case_content.to_i][n]
        print "\n"
      end
-     print "       C1           C2           C3\n"
+     print "      C1           C2           C3\n"
      for n in (0..6)
        print disp[@c1.case_content.to_i][n]
        print disp[@c2.case_content.to_i][n]
